@@ -1,3 +1,56 @@
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+    import UsersCard from '$lib/components/UsersCard.svelte';
+	import { goto } from '$app/navigation';
+    import { page } from '$app/state';
+
+    export let data;
+    $: total = data.totalGet;
+    $: pageData = data.page;
+    let isSearch;
+
+    const handleSearch = async (e) => {
+        const q = e.detail.trim();
+        isSearch = true;
+        goto(q ? `?q=${q}&page=${pageData}` : "/" );
+    }
+    
+    const nextPage = () => {
+        if(pageData != undefined) {
+            let url = new URL(page.url);
+            let params = url.searchParams;
+            pageData += 1;
+            params.set('page', String(pageData));
+            return goto(`${url}`)
+        }
+        return alert("ada error")
+    }
+
+    const backPage = () => {
+        if(pageData != undefined && pageData > 1){
+            let url = new URL(page.url);
+            let params = url.searchParams;
+            pageData -= 1;
+            params.set('page', String(pageData));
+            return goto(`${url}`)
+        }
+        return alert("sudah tidak bisa back");
+    }
+</script>
+
+{#if total < 1}
+    <h1>kosong</h1>
+{:else}
+    {#await data.users}
+        <h1>load</h1>
+    {:then users} 
+    <div class="flex justify-center">
+        <UsersCard users={users}></UsersCard>
+    </div>
+        {#if pageData != undefined && total > 18}
+            {#if pageData > 1 }
+                <button on:click={backPage}>back</button>
+            {/if}
+            <button on:click={nextPage}>next</button>
+        {/if}
+    {/await}
+{/if}
