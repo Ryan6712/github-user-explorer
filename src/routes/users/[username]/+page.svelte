@@ -1,7 +1,10 @@
 <script>
+	import UserDetailCard from '$lib/components/big/UserDetailCard.svelte';
+
     export let data;
+    const { user } = data;
     console.log(data);
     
 </script>
 
-<h1>liat console bree</h1>
+<UserDetailCard user={user}></UserDetailCard>

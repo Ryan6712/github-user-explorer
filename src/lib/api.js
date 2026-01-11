@@ -8,7 +8,7 @@ const token = process.env.API_token;
 
 // home awal semua(beberapa) user tampil disini
 export const getAllUsers = async () => {
-    return fetchUrl(`${main}/users?per_page=18`)
+    return fetchUrl(`${main}/users`)
 }
 
 // ambil user detail
@@ -17,13 +17,13 @@ export const getUser = async (username) => {
 }
 
 // search user ada disetiap halaman 
-export const searchUser = async (q) => {
-    return fetchUrl(`${main}/search/users?q=${q}&per_page=18`)
+export const searchUser = async (q, page) => {
+    return fetchUrl(`${main}/search/users?q=${q}&per_page=20&page=${page}`)
 }
 
 // untuk ambil repo dari user
-export const getUserRepos = async (username) => {
-    return fetchUrl(`${main}/users/${username}/repos?per_page=10`)
+export const getUserRepos = async (username, page) => {
+    return fetchUrl(`${main}/users/${username}/repos?per_page=10&page=${page}`)
 
 }
 

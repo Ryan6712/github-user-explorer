@@ -2,6 +2,76 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+@theme {
+    --color-white-smoke-50: #f2f4f1;
+--color-white-smoke-100: #e6e9e2;
+--color-white-smoke-200: #ccd2c6;
+--color-white-smoke-300: #b3bca9;
+--color-white-smoke-400: #99a58d;
+--color-white-smoke-500: #808f70;
+--color-white-smoke-600: #66725a;
+--color-white-smoke-700: #4d5643;
+--color-white-smoke-800: #33392d;
+--color-white-smoke-900: #1a1d16;
+--color-white-smoke-950: #121410;
+
+--color-dark-khaki-50: #f5f6ee;
+--color-dark-khaki-100: #eaedde;
+--color-dark-khaki-200: #d5dcbc;
+--color-dark-khaki-300: #c1ca9b;
+--color-dark-khaki-400: #acb979;
+--color-dark-khaki-500: #97a758;
+--color-dark-khaki-600: #798646;
+--color-dark-khaki-700: #5b6435;
+--color-dark-khaki-800: #3c4323;
+--color-dark-khaki-900: #1e2112;
+--color-dark-khaki-950: #15170c;
+
+--color-dusty-olive-50: #f5f6ef;
+--color-dusty-olive-100: #ebecdf;
+--color-dusty-olive-200: #d7dabe;
+--color-dusty-olive-300: #c2c79e;
+--color-dusty-olive-400: #aeb57d;
+--color-dusty-olive-500: #9aa25d;
+--color-dusty-olive-600: #7b824a;
+--color-dusty-olive-700: #5c6138;
+--color-dusty-olive-800: #3e4125;
+--color-dusty-olive-900: #1f2013;
+--color-dusty-olive-950: #16170d;
+
+--color-dry-sage-50: #f6f6ef;
+--color-dry-sage-100: #ececdf;
+--color-dry-sage-200: #d9dabe;
+--color-dry-sage-300: #c6c79e;
+--color-dry-sage-400: #b4b57d;
+--color-dry-sage-500: #a1a25d;
+--color-dry-sage-600: #81824a;
+--color-dry-sage-700: #606138;
+--color-dry-sage-800: #404125;
+--color-dry-sage-900: #202013;
+--color-dry-sage-950: #17170d;
+
+--color-ash-brown-50: #f4f2f0;
+--color-ash-brown-100: #eae5e1;
+--color-ash-brown-200: #d5cac3;
+--color-ash-brown-300: #c0b0a5;
+--color-ash-brown-400: #aa9688;
+--color-ash-brown-500: #957b6a;
+--color-ash-brown-600: #776355;
+--color-ash-brown-700: #5a4a3f;
+--color-ash-brown-800: #3c312a;
+--color-ash-brown-900: #1e1915;
+--color-ash-brown-950: #15110f;
+}
+
+:root {
+    --white: #eff1edff;
+    --dark-green: #373d20ff;
+    --green: #717744ff;
+    --light-green: #bcbd8bff;
+    --brown: #766153ff;
+}
+
 html {
     background-color: #EFF1ED;
 }

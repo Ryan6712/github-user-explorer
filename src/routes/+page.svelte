@@ -1,18 +1,11 @@
 <script>
-    import UsersCard from '$lib/components/UsersCard.svelte';
+    import UsersCard from '$lib/components/big/UsersCard.svelte';
 	import { goto } from '$app/navigation';
     import { page } from '$app/state';
 
     export let data;
     $: total = data.totalGet;
     $: pageData = data.page;
-    let isSearch;
-
-    const handleSearch = async (e) => {
-        const q = e.detail.trim();
-        isSearch = true;
-        goto(q ? `?q=${q}&page=${pageData}` : "/" );
-    }
     
     const nextPage = () => {
         if(pageData != undefined) {
@@ -36,21 +29,16 @@
         return alert("sudah tidak bisa back");
     }
 </script>
-
 {#if total < 1}
     <h1>kosong</h1>
 {:else}
-    {#await data.users}
-        <h1>load</h1>
-    {:then users} 
     <div class="flex justify-center">
-        <UsersCard users={users}></UsersCard>
+        <UsersCard users={data.users}></UsersCard>
     </div>
-        {#if pageData != undefined && total > 18}
-            {#if pageData > 1 }
-                <button on:click={backPage}>back</button>
-            {/if}
-            <button on:click={nextPage}>next</button>
+    {#if pageData != undefined && total > 18}
+        {#if pageData > 1 }
+            <button on:click={backPage}>back</button>
         {/if}
-    {/await}
+        <button on:click={nextPage}>next</button>
+    {/if}
 {/if}
