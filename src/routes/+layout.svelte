@@ -14,7 +14,7 @@
 {/if}
 
 <Navbar></Navbar>
-<div class="container mx-auto overflow-x-hidden my-7 px-12">
+<div class="container mx-auto  my-7">
 	{@render children()}
 </div>
 

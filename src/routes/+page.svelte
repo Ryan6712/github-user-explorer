@@ -29,6 +29,8 @@
         return alert("sudah tidak bisa back");
     }
 </script>
+
+
 {#if total < 1}
     <h1>kosong</h1>
 {:else}
